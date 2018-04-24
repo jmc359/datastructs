@@ -356,15 +356,11 @@ main(int argc, char **argv)
     }
     free(s);
 
-    // print
-    for(struct elt *e = s1->next; e != 0; e = e->next){
-        printf("%s\n", e->string);
-    }
-
-    // destroy stack
+    // print and destroy stack
     while(!stackEmpty(s1)){
         struct elt *tmp = stackPop(s1);
-        free(tmp->string);
+        printf("%s\n", tmp->string);
+	free(tmp->string);
         free(tmp);
     }
     free(s1);
